@@ -1,6 +1,6 @@
 # OBS Studio Bridge for Grass Valley Kayak/Korona Control Panel
 
-Reverse-engineering a decommissioned Grass Valley/Thomson **Kayak DD-1** broadcast control panel to use it as a physical hardware controller for **OBS Studio** — key presses trigger scene changes and macros via the Advanced Scene Switcher plugin / obs-websocket v5, analogous to an existing Skaarhoj Air Fly Pro → OBS bridge.
+Reverse-engineering a decommissioned Grass Valley/Thomson **Kayak DD-1** broadcast control panel to use it as a physical hardware controller for **OBS Studio** — key presses trigger scene changes and Macros/E-MEMs via the Advanced Scene Switcher plugin / obs-websocket v5
 
 ## Status
 
@@ -8,12 +8,12 @@ Reverse-engineering a decommissioned Grass Valley/Thomson **Kayak DD-1** broadca
 
 ## Hardware
 
-- Panel: Grass Valley/Thomson "Kayak DD-1" Control Panel, model **CP RC3800**, P/N 660004900
+- Panel: Grass Valley/Thomson "Kayak DD-1" Control Panel, model **CP RC3800**
 - Internal board: "GRASS VALLEY GROUP PANEL CONTROLLER 2ME CTRPNL" (671-6533-xx) — CPLD + LVTH18512 parallel-bus drivers + key matrix (pads T37–T126)
 - Note: the Kayak DD-1 is its own, lower-cost GV product line — **not** related in hardware/architecture to Kalypso/Zodiak/Kayenne. Only shares protocol heritage (Editor Protocol, Peripheral Bus II), not hardware.
 - Rear connectors (confirmed by inspection):
   - RJ45/LAN — active
-  - RS-232/COM1 — active, but GPI trigger *outputs* only, not usable for key data
+  - RS-232/COM1 — active
   - RS-485/COM2 — labeled "SPARE", unused
   - USB ×2 — labeled "SPARE", unused
 
@@ -29,7 +29,6 @@ This shifted the project from hardware matrix-scanning (originally planned: a Te
 
 ## Dead ends
 
-- Multimeter-mapping the key matrix directly on the CPLD board — likely unnecessary now that comms are known to run over Ethernet/IP
 - GV "Switcher Products — Protocols Manual" (covers Kalypso/Zodiak/Kayenne) does **not** document the DD-1/CP3800's internal panel bus — only external RS-422/RS-485 protocols
 - RS-232 (COM1) is GPI trigger output only, not usable for key-press data
 - The official *Kayak DD-1 Planning and Installation Manual* is not publicly downloadable (403 Forbidden on grassvalley.com)
