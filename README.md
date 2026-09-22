@@ -48,4 +48,4 @@ Proprietary Grass Valley firmware, installer software, and manuals are **not** p
 
 ## License
 
-TBD
+[Apache License 2.0](LICENSE.md)
